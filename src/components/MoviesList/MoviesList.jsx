@@ -4,8 +4,7 @@ import { List, Item, Image, Title, ItemLink } from './MoviesList.styled';
 
 export const MoviesList = ({ movies }) => {
   const location = useLocation();
-
-  return (
+ return (
     <List>
       {movies.map(({ id, title, original_name, poster_path }) => {
         return (
