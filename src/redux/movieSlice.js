@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
 const API_KEY = '48978cb53ccabb273ee7577d68beda02';
 
 export const myMoviesSlice = createSlice({

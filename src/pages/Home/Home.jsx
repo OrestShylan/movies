@@ -9,27 +9,35 @@ export default function Home() {
   const { data, isLoading } = useFetchTrendingMoviesQuery();
   console.log(data);
 
-  // const [trendingMovies, setTrendingMovies] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const { results: movies } = data;
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   API.fetchTrendingMovies()
-  //     .then(({ data }) => {
-  //       setTrendingMovies(data.results);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     })
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // }, []);
-const { results: movies } = data;
   return (
     <Main>
       <Title>Trending Movies Today</Title>
-      {isLoading ? <Loader /> : <MoviesList movies={movies} />}
+      {isLoading ? (
+        <Loader />
+      ) : movies ? (
+        <MoviesList movies={movies} />
+      ) : (
+        <p>No trending movies available.</p>
+      )}
     </Main>
   );
 }
+
+// const [trendingMovies, setTrendingMovies] = useState([]);
+// const [isLoading, setIsLoading] = useState(false);
+
+// useEffect(() => {
+//   setIsLoading(true);
+//   API.fetchTrendingMovies()
+//     .then(({ data }) => {
+//       setTrendingMovies(data.results);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     })
+//     .finally(() => {
+//       setIsLoading(false);
+//     });
+// }, []);
