@@ -6,13 +6,9 @@ import { Main, Title } from './Home.styled';
 import { useFetchTrendingMoviesQuery } from 'redux/movieSlice';
 
 export default function Home() {
-  
-  const {
-    data: trendingMovies,
-    isLoading,
-  } = useFetchTrendingMoviesQuery();
-  
-  
+  const { data, isLoading } = useFetchTrendingMoviesQuery();
+  console.log(data);
+
   // const [trendingMovies, setTrendingMovies] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
 
@@ -29,12 +25,11 @@ export default function Home() {
   //       setIsLoading(false);
   //     });
   // }, []);
-
+const { results: movies } = data;
   return (
     <Main>
       <Title>Trending Movies Today</Title>
-      {isLoading && <Loader />}
-      <MoviesList movies={trendingMovies} />
+      {isLoading ? <Loader /> : <MoviesList movies={movies} />}
     </Main>
   );
 }
