@@ -7,9 +7,9 @@ import { useFetchTrendingMoviesQuery } from 'redux/movieSlice';
 
 export default function Home() {
   const { data, isLoading } = useFetchTrendingMoviesQuery();
-  console.log(data);
 
-  const { results: movies } = data;
+ const { results: movies } = data;
+  console.log(movies);
 
   return (
     <Main>
