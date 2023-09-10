@@ -6,17 +6,21 @@ import { Main, Title } from './Home.styled';
 import { useFetchTrendingMoviesQuery } from 'redux/movieSlice';
 
 export default function Home() {
-  const { data, isLoading } = useFetchTrendingMoviesQuery();
-  console.log(data);
-
-  const { results: movies } = data;
+  const {
+    data: movies,
+    isLoading,
+    isFetching,
+    isSuccess,
+  } = useFetchTrendingMoviesQuery();
+  console.log(movies);
+  console.log(isSuccess);
 
   return (
     <Main>
       <Title>Trending Movies Today</Title>
-      {isLoading ? (
+      {isLoading || isFetching ? (
         <Loader />
-      ) : movies ? (
+      ) : isSuccess || movies ? (
         <MoviesList movies={movies} />
       ) : (
         <p>No trending movies available.</p>
