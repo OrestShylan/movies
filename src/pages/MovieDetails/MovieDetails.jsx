@@ -1,4 +1,4 @@
-import { Outlet, useParams, useLocation, Navigate } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
 // import { toast } from 'react-toastify';
 import { Loader } from 'components/Loader/Loader';
