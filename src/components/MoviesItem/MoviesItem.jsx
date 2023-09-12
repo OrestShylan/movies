@@ -7,6 +7,7 @@ import {
 } from './MoviesItem.styled';
 import { getPosterUrl } from '../../api/api-service';
 export const MoviesItem = ({ movieDetails }) => {
+  console.log(movieDetails);
   const { poster_path, original_title, overview, genres, vote_average } =
     movieDetails;
 

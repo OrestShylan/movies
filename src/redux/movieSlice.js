@@ -26,6 +26,7 @@ export const moviesAPI = createApi({
   endpoints: builder => ({
     fetchTrendingMovies: builder.query({
       query: () => `trending/all/day?api_key=${API_KEY}`,
+      providesTags: ['Movie'],
     }),
     fetchMoviesByName: builder.query({
       query: searchValue =>
@@ -33,6 +34,7 @@ export const moviesAPI = createApi({
     }),
     fetchMoviesById: builder.query({
       query: movieId => `movie/${movieId}?api_key=${API_KEY}&language=en-US`,
+      providesTags: ['Movie'],
     }),
     fetchCast: builder.query({
       query: movieId =>
@@ -53,8 +55,7 @@ export const {
   useFetchReviewsQuery,
 } = moviesAPI;
 
-export const getPosterUrl = (url) =>
+export const getPosterUrl = url =>
   url
     ? `https://image.tmdb.org/t/p/w500${url}`
     : `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq_wGA4J08YoSd2-aTz9OQrZeSA2fnZxEbOA&usqp=CAU`;
-
