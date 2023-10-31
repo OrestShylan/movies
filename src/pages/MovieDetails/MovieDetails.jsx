@@ -18,21 +18,9 @@ export default function MovieDetails() {
     isFetching,
     isSuccess,
   } = useFetchMoviesByIdQuery(movieId);
-  // console.log(data);
+  
   const location = useLocation();
-  // const [movieDetails, setMovieDetails] = useState({});
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   API.fetchMoviesById(movieId)
-  //     .then(({ data }) => {
-  //       setMovieDetails(data);
-  //     })
-  //     .catch(error => {
-  //       toast.error(error.message);
-  //       setError(error);
-  //     });
-  // }, [movieId]);
+  
 
   const handlerGoBack = location?.state?.from ?? '/';
 
