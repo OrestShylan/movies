@@ -5,11 +5,14 @@ import {
   SpanMovie,
   TitleMovie,
 } from './MoviesItem.styled';
+
 import { getPosterUrl } from '../../api/api-service';
+import AddToFavoritesButton from 'components/AddToFavoritesButton/AddToFavoritesButton';
 export const MoviesItem = ({ movieDetails }) => {
-  // console.log(movieDetails);
+ 
   const { poster_path, original_title, overview, genres, vote_average } =
     movieDetails;
+
 
   const genresAll = () => {
     if (genres) {
@@ -40,6 +43,7 @@ export const MoviesItem = ({ movieDetails }) => {
           <SpanMovie>Genres: </SpanMovie>
           {genresAll()}
         </DescMovie>
+        <AddToFavoritesButton movie={movieDetails} />
       </div>
     </CartMovie>
   );

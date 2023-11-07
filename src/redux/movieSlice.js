@@ -6,16 +6,27 @@ export const myMoviesSlice = createSlice({
   name: 'movies',
   initialState: {
     filter: '',
+    favorites: [],
   },
   reducers: {
     updateFilter(state, action) {
       state.filter = action.payload;
     },
+    addToFavorites: (state, action) => {
+      state.favorites.push(action.payload);
+    },
+    removeFromFavorites: (state, action) => {
+    
+      state = state.filter(movie => movie.id !== action.payload.id);
+    },
   },
 });
 
-export const { updateFilter } = myMoviesSlice.actions;
+export const { updateFilter, addToFavorites, removeFromFavorites } =
+  myMoviesSlice.actions;
 export default myMoviesSlice.reducer;
+
+export const selectFavoriteMovies = state => state.movies.favorites;
 
 export const moviesAPI = createApi({
   reducerPath: 'moviesApi',
