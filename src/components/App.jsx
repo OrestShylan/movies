@@ -8,9 +8,11 @@ import { Loader } from './Loader/Loader';
 
 const Home = lazy(() => import('../pages/Home/Home'));
 const Movies = lazy(() => import('../pages/Movies/Movies'));
+const Favorites = lazy(()=> import('../pages/Favorites/Favorites'))
 const MovieDetails = lazy(() => import('../pages/MovieDetails/MovieDetails'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
+
 
 export const App = () => {
   return (
@@ -21,7 +23,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="movies" element={<Movies />} />
-          {/* <Route path="favorites" element={<Favorites />} /> */}
+          <Route path="favorites" element={<Favorites />} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
