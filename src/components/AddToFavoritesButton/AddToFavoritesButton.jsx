@@ -14,6 +14,9 @@ const AddToFavoritesButton = ({ movie }) => {
     } else {
       dispatch(addToFavorites(movie));
     }
+
+    const updatedFavorites = [...favoriteMovies, movie];
+    localStorage.setItem('favoriteMovies', JSON.stringify(updatedFavorites));
   };
 
   return (
