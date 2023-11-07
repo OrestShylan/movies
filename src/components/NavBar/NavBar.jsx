@@ -11,6 +11,7 @@ export const Navigation = () => {
       </Logo>
       <Link to="/">Home</Link>
       <Link to="movies">Movies</Link>
+      <Link to="favorites">Favorites</Link>
     </Navigate>
   );
 };

@@ -42,7 +42,7 @@ export default function Movies() {
       ) : moviesByName && moviesByName.length > 0 ? (
         <MoviesList movies={moviesByName} />
       ) : (
-        <p>No movies found.</p>
+        <p></p>
       )}
     </Main>
   );
