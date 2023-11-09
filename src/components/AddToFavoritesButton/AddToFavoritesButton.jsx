@@ -14,13 +14,7 @@ const AddToFavoritesButton = ({ movie }) => {
     } else {
       dispatch(addToFavorites(movie));
     }
-    // if (isFavorite) {
-    //   dispatch(removeFromFavorites(movie));
-    // } else {
-    //   if (!favoriteMovies.some(favMovie => favMovie.id === movie.id)) {
-    //     dispatch(addToFavorites(movie));
-    //   }
-    // }
+   
 
     const updatedFavorites = [...favoriteMovies, movie];
     localStorage.setItem('favoriteMovies', JSON.stringify(updatedFavorites));

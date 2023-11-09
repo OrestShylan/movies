@@ -21,10 +21,7 @@ export const myMoviesSlice = createSlice({
         movie => movie.id !== action.payload.id
       );
     },
-    // removeFromFavorites: (state, action) => {
-
-    //   state = state.filter(movie => movie.id !== action.payload.id);
-    // },
+    
   },
 });
 
