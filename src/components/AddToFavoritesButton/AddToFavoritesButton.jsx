@@ -9,18 +9,18 @@ const AddToFavoritesButton = ({ movie }) => {
   const isFavorite = favoriteMovies.some(favorite => favorite.id === movie.id);
 
   const handleToggleFavorite = () => {
-    // if (isFavorite) {
-    //   dispatch(removeFromFavorites(movie));
-    // } else {
-    //   dispatch(addToFavorites(movie));
-    // }
     if (isFavorite) {
       dispatch(removeFromFavorites(movie));
     } else {
-      if (!favoriteMovies.some(favMovie => favMovie.id === movie.id)) {
-        dispatch(addToFavorites(movie));
-      }
+      dispatch(addToFavorites(movie));
     }
+    // if (isFavorite) {
+    //   dispatch(removeFromFavorites(movie));
+    // } else {
+    //   if (!favoriteMovies.some(favMovie => favMovie.id === movie.id)) {
+    //     dispatch(addToFavorites(movie));
+    //   }
+    // }
 
     const updatedFavorites = [...favoriteMovies, movie];
     localStorage.setItem('favoriteMovies', JSON.stringify(updatedFavorites));
