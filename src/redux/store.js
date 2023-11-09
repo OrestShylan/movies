@@ -12,3 +12,7 @@ export const store = configureStore({
     moviesAPI.middleware,
   ],
 });
+
+
+
+export default store;

@@ -9,10 +9,17 @@ const AddToFavoritesButton = ({ movie }) => {
   const isFavorite = favoriteMovies.some(favorite => favorite.id === movie.id);
 
   const handleToggleFavorite = () => {
+    // if (isFavorite) {
+    //   dispatch(removeFromFavorites(movie));
+    // } else {
+    //   dispatch(addToFavorites(movie));
+    // }
     if (isFavorite) {
       dispatch(removeFromFavorites(movie));
     } else {
-      dispatch(addToFavorites(movie));
+      if (!favoriteMovies.some(favMovie => favMovie.id === movie.id)) {
+        dispatch(addToFavorites(movie));
+      }
     }
 
     const updatedFavorites = [...favoriteMovies, movie];

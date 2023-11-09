@@ -15,10 +15,16 @@ export const myMoviesSlice = createSlice({
     addToFavorites: (state, action) => {
       state.favorites.push(action.payload);
     },
+
     removeFromFavorites: (state, action) => {
-    
-      state = state.filter(movie => movie.id !== action.payload.id);
+      state.favorites = state.favorites.filter(
+        movie => movie.id !== action.payload.id
+      );
     },
+    // removeFromFavorites: (state, action) => {
+
+    //   state = state.filter(movie => movie.id !== action.payload.id);
+    // },
   },
 });
 
