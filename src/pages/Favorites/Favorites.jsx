@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectFavoriteMovies,
-  // addToFavorites,
   removeFromFavorites,
 } from 'redux/movieSlice';
 import {
@@ -12,24 +11,22 @@ import {
   Title,
 } from '../../components/MoviesList/MoviesList.styled';
 import { getPosterUrl } from 'redux/movieSlice';
+import { toast } from 'react-toastify';
 
 export default function Favorites() {
   const dispatch = useDispatch();
   const favoriteMovies = useSelector(selectFavoriteMovies);
   const [favorites, setFavorites] = useState(favoriteMovies);
 
-  // Завантаження обраних фільмів з локального сховища
+  
   useEffect(() => {
     const savedFavorites = localStorage.getItem('favoriteMovies');
     if (savedFavorites) {
       const parsedFavorites = JSON.parse(savedFavorites);
       setFavorites(parsedFavorites);
-      // Якщо не використовуємо setFavorites(parsedFavorites), то функція useEffect знову буде викликана,
-      // що може призвести до надмірної рекурсії, оскільки змінюємо стан favorites і знову викликаємо useEffect.
     }
   }, []);
 
-  // Збереження обраних фільмів у локальному сховищі при їх зміні
   useEffect(() => {
     localStorage.setItem('favoriteMovies', JSON.stringify(favorites));
   }, [favorites]);
@@ -39,6 +36,7 @@ export default function Favorites() {
       prevFavorites.filter(movie => movie.id !== id)
     );
     dispatch(removeFromFavorites(id));
+    toast('Removed from favorites', { type: 'warning' });
   };
 
   return (

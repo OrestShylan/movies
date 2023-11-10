@@ -1,10 +1,9 @@
 
 import { Navigate, Link, Logo } from './NavBar.styled';
-import { useSelector } from 'react-redux';
-import { selectFavoriteMovies } from 'redux/movieSlice';
+
 
 export const Navigation = () => {
-  const favoriteMovies = useSelector(selectFavoriteMovies);
+
   return (
     <Navigate>
       <Logo>
@@ -15,7 +14,7 @@ export const Navigation = () => {
       </Logo>
       <Link to="/">Home</Link>
       <Link to="movies">Movies</Link>
-      <Link to="favorites">Favorites({favoriteMovies.length})</Link>
+      <Link to="favorites">Favorites</Link>
     </Navigate>
   );
 };
